@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import ResContainer from '../ResContainer/ResContainer';
+import ResForm from '../ResForm/ResForm';
 import './App.css';
 
 
@@ -24,13 +25,16 @@ function App() {
     getAllReservations()
   }, [])
 
-
+  const addNewRes = (event, newRes) => {
+    event.preventDefault();
+    setAllReservations([newRes, ...allReservations])
+  }
 
   return (
     <div className="App">
       <h1 className='app-title'>Turing Cafe Reservations</h1>
       <div className='resy-form'>
-
+        <ResForm addNewRes={addNewRes} />
       </div>
       <div className='resy-container'>
         <ResContainer reservations={allReservations} />
