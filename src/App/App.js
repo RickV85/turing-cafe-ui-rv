@@ -1,6 +1,8 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
+import ResContainer from '../ResContainer/ResContainer';
 import './App.css';
+
 
 function App() {
   const [allReservations, setAllReservations] = useState([]);
@@ -18,9 +20,11 @@ function App() {
     }
   }
 
-   useEffect(() => {
+  useEffect(() => {
     getAllReservations()
   }, [])
+
+
 
   return (
     <div className="App">
@@ -29,7 +33,7 @@ function App() {
 
       </div>
       <div className='resy-container'>
-        
+        <ResContainer reservations={allReservations} />
       </div>
     </div>
   )
